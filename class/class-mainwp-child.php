@@ -35,14 +35,14 @@ class MainWP_Child {
      *
      * @var string MainWP Child plugin version.
      */
-    public static $version = '6.0.2'; // NOSONAR - not IP.
+    public static $version = '6.0.3'; // NOSONAR - not IP.
 
     /**
      * Private variable containing the latest MainWP Child update version.
      *
      * @var string MainWP Child update version.
      */
-    private $update_version = '1.6';
+    private $update_version = '1.6.3';
 
     /**
      * Public variable containing the MainWP Child plugin slug.
@@ -230,6 +230,8 @@ class MainWP_Child {
     private function init_cron_support() {
         // Support for cron jobs.
         if ( defined( 'DOING_CRON' ) && DOING_CRON ) {
+            // Normalize BackWPup cron args early to avoid PHP 8 named-parameter fatals.
+            MainWP_Child_Back_WP_Up::migrate_backwpup_cron_args();
             $mainwp_child_run = filter_input( INPUT_GET, 'mainwp_child_run', FILTER_SANITIZE_FULL_SPECIAL_CHARS );
             if ( ! empty( $mainwp_child_run ) ) {
                 add_action( 'init', array( MainWP_Utility::class, 'cron_active' ), PHP_INT_MAX );
@@ -386,8 +388,13 @@ class MainWP_Child {
             return;
         }
 
-        if ( version_compare( $update_version, '1.6', '<' ) ) {
-            delete_option( 'mainwp_child_subpages ' );
+        if ( ! empty( $update_version ) && version_compare( $update_version, '1.6', '<' ) ) {
+            delete_option( 'mainwp_child_subpages' );
+        }
+
+        if ( ! empty( $update_version ) && version_compare( $update_version, '1.6.3', '<' ) ) {
+            // fix auto load for old option mainwp_child_actions_saved_data, set it to no to avoid performance issue.
+            MainWP_Child_DB::fix_autoload( 'mainwp_child_actions_saved_data' );
         }
 
         MainWP_Helper::update_option( 'mainwp_child_update_version', $this->update_version, 'yes' );
