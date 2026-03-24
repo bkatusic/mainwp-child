@@ -7,7 +7,7 @@ Plugin URI: https://mainwp.com
 Requires at least: 6.2
 Tested up to: 6.9.4
 Requires PHP: 7.4
-Stable tag: 6.0.4
+Stable tag: 6.0.5
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -110,6 +110,11 @@ We have an extensive FAQ with more questions and answers [here](https://mainwp.c
 11. Dashboard Insights
 
 == Changelog ==
+
+= 6.0.5 - 3-24-2026 =
+
+* Fixed: Corrected the timing of theme update data collection to ensure the latest information is used during updates.
+* Fixed: Skipped logging meta creation events for auto-draft posts to prevent conflicts with the SureFeedback plugin.
 
 = 6.0.4 - 3-20-2026 =
 
