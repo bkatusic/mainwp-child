@@ -35,7 +35,7 @@ class MainWP_Child {
      *
      * @var string MainWP Child plugin version.
      */
-    public static $version = '6.0.6'; // NOSONAR - not IP.
+    public static $version = '6.0.7'; // NOSONAR - not IP.
 
     /**
      * Private variable containing the latest MainWP Child update version.
@@ -315,7 +315,8 @@ class MainWP_Child {
                 'mainwp_child_pingnonce',
                 'mainwp_child_ignored_changes_logs',
                 'mainwp_child_ignored_nonmainwp_actions',
-
+                'mainwp_child_changes_logs_ttl',
+                'mainwp_child_changes_logs_enabled',
             );
 
             // Execute individual queries for each option for maximum security.
