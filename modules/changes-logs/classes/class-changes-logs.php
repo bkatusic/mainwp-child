@@ -52,7 +52,7 @@ class Changes_Logs {
      * Run any time class is called.
      */
     public function __construct() {
-        if ( get_option( 'mainwp_child_changes_logs_enabled', false ) ) {
+        if ( get_option( 'mainwp_child_changes_logs_enabled', true ) ) {
             add_action( 'init', array( $this, 'init_hooks' ), 0 );
             add_action( 'init', array( $this, 'init' ) );
             Changes_Loggers_Loader::load_early_change_handle();
