@@ -111,7 +111,7 @@ We have an extensive FAQ with more questions and answers [here](https://mainwp.c
 
 == Changelog ==
 
-= 6.0.10 - 4-28-2026 =
+= 6.0.10 - 5-5-2026 =
 * Fixed: Global `customize_register` hook exposes legacy Customizer UI issues.
 
 = 6.0.10 - 4-28-2026 =
