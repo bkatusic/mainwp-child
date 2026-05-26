@@ -5,9 +5,9 @@ Author: mainwp
 Author URI: https://mainwp.com
 Plugin URI: https://mainwp.com
 Requires at least: 6.2
-Tested up to: 6.9.4
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 6.0.11
+Stable tag: 6.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -110,6 +110,13 @@ We have an extensive FAQ with more questions and answers [here](https://mainwp.c
 11. Dashboard Insights
 
 == Changelog ==
+
+= 6.1 - 5-26-2026 =
+
+* Fixed: Typos and inconsistencies in user login event log descriptions and action identifiers for improved clarity and consistency across Network Activity logs.
+* Updated: Spammed comments are now properly excluded from being counted in reports and token metrics.
+* Updated: Updated the PHPSecLib library to the latest version.
+* Updated: Enhanced plugin and theme health check monitoring with improved background task scheduling and automatic recovery from missed scheduled events.
 
 = 6.0.11 - 5-5-2026 =
 * Fixed: Global `customize_register` hook exposes legacy Customizer UI issues.
